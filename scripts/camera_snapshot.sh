@@ -1,8 +1,7 @@
 #!/bin/bash
-sudo rm ../images/*
-sleep 2
+rm ../images/*
 sudo python PythonCap.py
-sleep 2
+sleep 5
 git add ../images/
 git commit -m "push img automated script"
 git push origin master
