@@ -1,9 +1,8 @@
 #!/bin/bash
-cd ..
 sleep 5
-fswebcam /images/slika2.jpg
+sudo python PythonCap.py
 sleep 5
-git add *
+git add images
 git commit -m "push img automated script"
 git push origin master
 
