@@ -22,7 +22,15 @@ while True:
         image = imutils.resize(im, width=min(400, im.shape[1]))
         (rects, weights) = hog.detectMultiScale(image, winStride=(4, 4),
                                                 padding=(8, 8), scale=1.05)
-        if rects:
+
+        if len(rects):
+            if rects.any():
+                break
+        # cv2.imshow("aaa",image)
+        key = cv2.waitKey(1) & 0xFF
+
+        # if the `q` key is pressed, break from the lop
+        if key == ord("q"):
             break
     else:
         cam.release
@@ -51,5 +59,4 @@ filename = "snapshooty"
 print("[INFO] {}: {} original boxes, {} after suppression".format(
     filename, len(rects), len(pick)))
 
-
-cv2.imwrite("../images/snapshot_"+argument1+".png", image)
+cv2.imwrite("snapshot_"+argument1+".png", image)
