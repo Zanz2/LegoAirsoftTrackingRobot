@@ -50,7 +50,7 @@ while True:
 
                 cv2.imwrite("snapshot_" + argument1 + ".png", image)
                 with open("snapshot_" + argument1 + ".png", 'rb') as f:
-                    dbx.files_upload(f.read(), "/drop_images/detect_" + argument1 + ".png")
+                    dbx.files_upload(f.read(), "/drop_images/detect_" + argument1 + str(counter_pic) + ".png")
                 time.sleep(3)
                 os.remove("snapshot_" + argument1 + ".png")
                 counter_pic += 1
