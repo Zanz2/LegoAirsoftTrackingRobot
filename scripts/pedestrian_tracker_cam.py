@@ -1,4 +1,4 @@
-# import the necessary packages
+#!/usr/bin/python3
 from __future__ import print_function
 from imutils.object_detection import non_max_suppression
 from imutils import paths
@@ -7,6 +7,15 @@ import imutils
 import cv2
 import time
 import sys
+import dropbox
+import os
+
+list_arg = sys.argv
+argument1 = list_arg[1]
+with open('api.txt', 'r') as myfile:
+    api = myfile.read().replace('\n', '')
+
+dbx = dropbox.Dropbox(api)
 
 # initialize the HOG descriptor/person detector
 hog = cv2.HOGDescriptor()
@@ -14,8 +23,7 @@ hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
 # loop over the image paths
 cam = cv2.VideoCapture(0)
-list_arg = sys.argv
-argument1 = list_arg[1]
+
 while True:
     (s, im) = cam.read()
     if s:
@@ -54,9 +62,8 @@ pick = non_max_suppression(rects, probs=None, overlapThresh=0.65)
 for (xA, yA, xB, yB) in pick:
     cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
 
-# show some information on the number of bounding boxes
-filename = "snapshooty"
-print("[INFO] {}: {} original boxes, {} after suppression".format(
-    filename, len(rects), len(pick)))
-
 cv2.imwrite("snapshot_"+argument1+".png", image)
+with open("snapshot_"+argument1+".png", 'rb') as f:
+    dbx.files_upload(f.read(), "/drop_images/detect_"+argument1+".png")
+time.sleep(3)
+os.remove("snapshot_"+argument1+".png")
