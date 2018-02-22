@@ -1,12 +1,14 @@
 #!/usr/bin/python
+import os
 import cv2
 import numpy
 import sys
 import imutils
+import dropbox
 import time
 def main():
-	list_arg = sys.argv
-	argument1 = list_arg[1]
+    list_arg = sys.argv
+    argument1 = list_arg[1]
     cam = cv2.VideoCapture(0)
     while True:
         (s, im) = cam.read()
@@ -17,13 +19,13 @@ def main():
         cam = cv2.VideoCapture(0)
     time.sleep(1)
     cam.release()
-	with open('api.txt', 'r') as myfile:
-    api = myfile.read().replace('\n', '')
-	dbx = dropbox.Dropbox(api)
-	with open("../images/snapshot_"+argument1+".png", 'rb') as f:
-    dbx.files_upload(f.read(), "/drop_images/non_detect_"+argument1+".png")
-	time.sleep(3)
-	os.remove("../images/snapshot_"+argument1+".png")
+    with open('api.txt', 'r') as myfile:
+        api = myfile.read().replace('\n', '')
+    dbx = dropbox.Dropbox(api)
+    with open("../images/snapshot_"+argument1+".png", 'rb') as f:
+        dbx.files_upload(f.read(), "/drop_images/non_detect_"+argument1+".png")
+    time.sleep(3)
+    os.remove("../images/snapshot_"+argument1+".png")
     print "success"
 
 if __name__ == '__main__':
