@@ -10,7 +10,7 @@ import time
 import brickpi3
 import sys
 BP = brickpi3.BrickPi3()
-duration = sys.argv[1]
+duration = float(sys.argv[1])
 #duration = 0.1
 # Set the motor speed for all four motors
 speed = 100

@@ -16,9 +16,9 @@ if position=="forward":
     encoder_value = 0
 elif position=="backward":
     encoder_value = 180
-elif position=="left":
+elif position=="right":
     encoder_value = 90
-elif position == "right":
+elif position == "left":
     encoder_value = 270
 # Set the motor speed for all four motors
 #speed = -100
