@@ -48,11 +48,11 @@ while True:
                 for (xA, yA, xB, yB) in pick:
                     cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
 
-                cv2.imwrite("snapshot_" + argument1 + ".png", image)
-                with open("snapshot_" + argument1 + ".png", 'rb') as f:
+                cv2.imwrite("images/snapshot_" + argument1 + ".png", image)
+                with open("images/snapshot_" + argument1 + ".png", 'rb') as f:
                     dbx.files_upload(f.read(), "/drop_images/detect_" + argument1 + str(counter_pic) + ".png")
                 time.sleep(3)
-                os.remove("snapshot_" + argument1 + ".png")
+                os.remove("images/snapshot_" + argument1 + ".png")
                 counter_pic += 1
                 if counter_pic == 20:
                     break
