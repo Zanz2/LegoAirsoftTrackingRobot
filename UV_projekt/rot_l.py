@@ -11,11 +11,12 @@ import brickpi3
 import sys
 BP = brickpi3.BrickPi3()
 duration = float(sys.argv[1])
+duration = duration * 1.25
 #duration = 0.1
 # Set the motor speed for all four motors
 speed = 100
-BP.set_motor_power(BP.PORT_A , speed)
 BP.set_motor_power(BP.PORT_B , -speed)
+BP.set_motor_power(BP.PORT_A , speed)
 try:
     # Each of the following BP.get_motor_encoder functions returns the encoder value (what we want to display).
     print("Encoder A: %6d  B: %6d  C: %6d  D: %6d" % (BP.get_motor_encoder(BP.PORT_A), BP.get_motor_encoder(BP.PORT_B), BP.get_motor_encoder(BP.PORT_C), BP.get_motor_encoder(BP.PORT_D)))
