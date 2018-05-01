@@ -229,4 +229,4 @@ while True:
         snapshot(text[1])
     elif text[0]=="track":
         toggle_tracker(text[1])
-	print text
+	print(text)
