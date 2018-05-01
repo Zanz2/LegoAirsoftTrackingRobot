@@ -205,7 +205,7 @@ while True:
     print("p + w a s d (camera position)")
     print("snap + name (snapshot with name)")
     print("track + name (tracker with name)")
-	print("Enter your command:")
+    print("Enter your command:")
     text = raw_input("")
     text.split(" ")
     if text[0]=="w":
