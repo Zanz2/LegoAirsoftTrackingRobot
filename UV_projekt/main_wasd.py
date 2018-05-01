@@ -208,7 +208,7 @@ while True:
     print("Enter your command:")
     text = raw_input("")
     text = text.split(" ")
-	print(text)
+    print(text)
     if text[0]=="w":
         forward(0.25)
     elif text[0]=="a":
