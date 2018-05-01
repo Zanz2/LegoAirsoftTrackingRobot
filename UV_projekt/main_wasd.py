@@ -205,7 +205,8 @@ while True:
     print("p + w a s d (camera position)")
     print("snap + name (snapshot with name)")
     print("track + name (tracker with name)")
-    text = raw_input("Enter your command")
+	print("Enter your command:")
+    text = raw_input("")
     text.split(" ")
     if text[0]=="w":
         forward(0.25)
@@ -228,3 +229,4 @@ while True:
         snapshot(text[1])
     elif text[0]=="track":
         toggle_tracker(text[1])
+	print text
