@@ -216,13 +216,13 @@ while True:
     elif text[0] == "d":
         rotate_right(0.25)
     elif text[0]=="p":
-        if text=="w":
+        if text[1]=="w":
             camera_position("forward")
-        elif text=="a":
+        elif text[1]=="a":
             camera_position("left")
-        elif text=="s":
+        elif text[1]=="s":
             camera_position("backward")
-        elif text == "d":
+        elif text[1] == "d":
             camera_position("right")
     elif text[0] == "snap":
         snapshot(text[1])
