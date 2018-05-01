@@ -133,7 +133,7 @@ def snapshot(vrednost):
         dbx.files_upload(f.read(), "/drop_images/non_detect_"+argument1+".png")
     time.sleep(3)
     os.remove("images/snapshot_"+argument1+".png")
-    print "success"
+    print ("success")
 
 def toggle_tracker(vrednost):
     argument1 = vrednost
