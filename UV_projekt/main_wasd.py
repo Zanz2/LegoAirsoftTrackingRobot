@@ -205,6 +205,7 @@ while True:
     print("p + w a s d (camera position)")
     print("snap + name (snapshot with name)")
     print("track + name (tracker with name)")
+	print("live feed is at: http://192.168.1.66/html/index.php ")
     print("Enter your command:")
     text = raw_input("")
     text = text.split(" ")
