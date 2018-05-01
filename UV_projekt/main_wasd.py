@@ -210,11 +210,11 @@ while True:
     if text[0]=="w":
         forward(0.25)
     elif text[0]=="a":
-        rotate_left(0.5)
+        rotate_left(0.25)
     elif text[0]=="s":
         backward(0.25)
     elif text[0] == "d":
-        rotate_right(0.5)
+        rotate_right(0.25)
     elif text[0]=="p":
         if text=="w":
             camera_position("forward")
