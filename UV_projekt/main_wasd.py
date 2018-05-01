@@ -207,7 +207,7 @@ while True:
     print("track + name (tracker with name)")
     print("Enter your command:")
     text = raw_input("")
-    text.split(" ")
+    text = text.split(" ")
     if text[0]=="w":
         forward(0.25)
     elif text[0]=="a":
